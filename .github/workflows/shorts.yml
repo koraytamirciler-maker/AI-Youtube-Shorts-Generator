@@ -13,5 +13,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Kullanicinin girdigi konuyu goster
-        run: echo "Konu: ${{ github.event.inputs.topic }}"
+      - name: Konuyu Goster
+        run: echo ${{ github.event.inputs.topic }}
