@@ -9,9 +9,9 @@ on:
         default: "Yapay zeka"
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Konuyu Goster
-        run: echo "${{ github.event.inputs.topic }}"
+      - name: Kullanicinin girdigi konuyu goster
+        run: echo "Konu: ${{ github.event.inputs.topic }}"
