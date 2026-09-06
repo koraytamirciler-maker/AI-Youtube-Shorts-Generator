@@ -2,16 +2,26 @@ name: Shorts Generator
 
 on:
   workflow_dispatch:
-    inputs:
-      topic:
-        description: "Video konusu"
-        required: true
-        default: "Yapay zeka"
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+
     steps:
-      - name: Konuyu Goster
-        run: echo ${{ github.event.inputs.topic }}
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run generator
+        run: python main.py
