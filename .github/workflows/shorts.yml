@@ -35,8 +35,10 @@ jobs:
 
       - name: Run generator
         run: python main.py
-        - name: Upload Video
+
+      - name: Upload Video
         uses: actions/upload-artifact@v4
         with:
-        name: shorts-video
-        path: assets/final
+          name: shorts-video
+          path: assets/final
+          if-no-files-found: warn
