@@ -10,4 +10,3 @@ jobs:
     steps:
       - name: Test
         run: echo "Github Actions Calisiyor"
-`
