@@ -19,7 +19,7 @@ class ContentBrain:
         """
         prompts = "Give me 1 specific, viral, and engaging topic for a Short Documentary. It should be a 'Engaging Did you know' fact or a 'Fun/intriguing Engaging News'. return ONLY the topic name."
         client = _get_client()
-        response = client.models.generate_content(model=os.getenv('GEMINI_MODEL', 'gemini-2.0-flash'), contents=prompts)
+        response = client.models.generate_content(model=os.getenv('GEMINI_MODEL', 'gemini-3.6-flash), contents=prompts)
         topic = response.text.strip()
         print(f"🎯 Selected Topic: {topic}")
         return topic
@@ -106,7 +106,7 @@ class ContentBrain:
     
 
         client = _get_client()
-        response = client.models.generate_content(model=os.getenv('GEMINI_MODEL', 'gemini-2.0-flash'), contents=prompt)
+        response = client.models.generate_content(model=os.getenv('GEMINI_MODEL', 'gemini-3.6-flash), contents=prompt)
         
         # Clean the response to ensure it's valid JSON (sometimes AI adds markdown)
         clean_text = response.text.replace('```json', '').replace('```', '').strip()
