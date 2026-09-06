@@ -1,12 +1,17 @@
-name: Shorts Test
+name: Shorts Generator
 
 on:
   workflow_dispatch:
+    inputs:
+      topic:
+        description: "Video konusu"
+        required: true
+        default: "Yapay zeka"
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Test
-        run: echo "Github Actions Calisiyor"
+      - name: Konuyu Goster
+        run: echo "${{ github.event.inputs.topic }}"
